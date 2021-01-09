@@ -12,20 +12,20 @@ body {
 :root {
   /* light mode */
 
-  --light-switch-shadow: rgba(68,78,85,1.0);
+  --light-switch-shadow: rgba(68, 78, 85, 1);
   --light-switch-icon: "🌚";
   --light-switch-text: "switch to dark mode";
-  --light-text:  rgba(48,48,52,1.0);
-  --light-bg: rgba(239, 239, 239, 1.0);
-  --light-theme: rgba(48,48,201,1.0);
+  --light-text: rgba(48, 48, 52, 1);
+  --light-bg: rgba(239, 239, 239, 1);
+  --light-theme: rgba(48, 48, 201, 1);
 
   /* dark mode */
-  --dark-switch-shadow: rgba(252,228,119,1.0);
+  --dark-switch-shadow: rgba(252, 228, 119, 1);
   --dark-switch-icon: "🌞";
   --dark-switch-text: "switch to light mode";
-  --dark-text: rgba(239, 239, 239, 1.0);
-  --dark-bg: rgba(48,48,52,1.0);
-  --dark-theme: rgba(129,102,143,1.0);
+  --dark-text: rgba(239, 239, 239, 1);
+  --dark-bg: rgba(48, 48, 52, 1);
+  --dark-theme: rgba(129, 102, 143, 1);
 
   /* default mode */
   --switch-shadow-color: var(--light-switch-shadow);
@@ -58,7 +58,7 @@ body {
 .switch-label::before {
   content: var(--switch-icon);
   font-size: 2.5em;
-  transition: text-shadow .2s;
+  transition: text-shadow 0.2s;
 }
 .switch-label::after {
   align-self: center;
@@ -80,4 +80,3 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
 }
-
