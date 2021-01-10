@@ -3,9 +3,36 @@ html {
 }
 body {
   font-size: 1rem;
-  font-size: clamp(100%, 0.5rem + 1vw, 1.5rem);
+  font-size: clamp(100%, 0.5rem + 1vw, 2rem);
+  font-family: "Roboto", sans-serif;
+}
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+p {
+  margin: 1em 0;
+}
+li {
+  margin: 0.5em 0;
+}
+a {
+  color: var(--link-text);
+  text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+}
+a code {
+  color: var(--code-link-text);
+}
+a code:hover {
+  color: var(--link-text);
+  background-color: var(--bg-color);
+  transition: color 0.2s, background-color 0.2s;
 }
 :root {
   /* light mode */
@@ -15,9 +42,8 @@ body {
   --light-switch-text: "switch to dark mode";
   --light-text: rgba(48, 48, 52, 1);
   --light-bg: rgba(239, 239, 239, 1);
-  --light-theme: rgba(48, 48, 201, 1);
-  --light-code-bg: rgba(48, 48, 52, 1);
-  --light-code-text: rgba(239, 239, 239, 1);
+  --light-theme: rgb(34, 34, 37);
+  --light-link-text: rgba(21, 20, 140, 1);
 
   /* dark mode */
   --dark-switch-shadow: rgba(252, 228, 119, 1);
@@ -25,9 +51,8 @@ body {
   --dark-switch-text: "switch to light mode";
   --dark-text: rgba(239, 239, 239, 1);
   --dark-bg: rgba(48, 48, 52, 1);
-  --dark-theme: rgba(129, 102, 143, 1);
-  --dark-code-bg: rgba(239, 239, 239, 1);
-  --dark-code-text: rgba(48, 48, 52, 1);
+  --dark-theme: rgb(81, 63, 90);
+  --dark-link-text: rgba(82, 224, 255, 1);
 
   /* default mode */
   --switch-shadow-color: var(--light-switch-shadow);
@@ -36,8 +61,10 @@ body {
   --text-color: var(--light-text);
   --bg-color: var(--light-bg);
   --theme-color: var(--light-theme);
-  --code-bg: var(--light-code-bg);
-  --code-text: var(--light-code-text);
+  --code-bg: var(--dark-bg);
+  --code-text: var(--dark-text);
+  --link-text: var(--light-link-text);
+  --code-link-text: var(--dark-link-text);
 }
 /* switched mode */
 .theme-switch:checked ~ .content {
@@ -47,8 +74,10 @@ body {
   --text-color: var(--dark-text);
   --bg-color: var(--dark-bg);
   --theme-color: var(--dark-theme);
-  --code-bg: var(--dark-code-bg);
-  --code-text: var(--dark-code-text);
+  --code-bg: var(--light-bg);
+  --code-text: var(--light-text);
+  --link-text: var(--dark-link-text);
+  --code-link-text: var(--light-link-text);
 }
 .theme-switch {
   position: absolute;
@@ -62,20 +91,20 @@ body {
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
-  padding: 2%;
+  align-items: center;
   grid-area: theme;
+  padding: 2%;
 }
 .switch-label::before {
-  align-self: center;
   content: var(--switch-text);
   color: var(--switch-shadow-color);
   font-size: 0.875em;
   opacity: 0;
-  padding-left: 1%;
+  padding-right: 2%;
 }
 .switch-label::after {
   content: var(--switch-icon);
-  font-size: 2.5em;
+  font-size: 2em;
   transition: text-shadow 0.2s;
 }
 .theme-switch:focus ~ .content .switch-label::before,
@@ -91,14 +120,54 @@ body {
   background-color: var(--bg-color);
   transition: background-color 0.2s, color 0.2s;
   display: grid;
-  grid-template-rows: 5em calc(100vh - 5em);
+  grid-template-rows: 2.5em calc(100vh - 2.5em);
   grid-template-columns: 1fr 75vw;
   grid-template-areas:
     "nav theme"
     "nav main";
 }
-.navbar {
+.nav-bar {
   grid-area: nav;
+  overflow: auto;
+  border-right: 4px solid var(--theme-color);
+}
+.nav-list {
+  list-style: none;
+}
+.nav-list:last-child {
+  border-bottom: 2px solid var(--theme-color);
+}
+.nav-item {
+  border-top: 2px solid var(--theme-color);
+  margin: 0;
+}
+.nav-link {
+  padding: 1em;
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+}
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active {
+  text-decoration: underline;
+  color: var(--code-text);
+  background-color: var(--code-bg);
+  transition: color 0.2s;
+  width: 100%;
+}
+h1,
+h2,
+h3 {
+  margin: 1em 0;
+  font-family: "Spartan", sans-serif;
+}
+h1 {
+  text-align: center;
+}
+h3 {
+  font-size: 1em;
+  text-indent: 1em;
 }
 pre {
   overflow-x: auto;
@@ -106,15 +175,30 @@ pre {
   color: var(--code-text);
   transition: background-color 0.2s, color 0.2s;
   margin: 0 auto;
+  padding: 1em;
+  margin: 0.5em 0;
 }
 code {
   background-color: var(--code-bg);
   color: var(--code-text);
+  font-family: "Cutive Mono", monospace;
+  transition: background-color 0.2s, color 0.2s;
 }
 .scroll {
   grid-area: main;
-  overflow: auto;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 .main {
   height: 1000px;
+  margin: 0 2em;
+}
+.open-tag {
+  color: rgba(3, 180, 3);
+}
+.close-tag {
+  color: red;
+}
+.attribute {
+  color: rgb(255, 125, 147);
 }

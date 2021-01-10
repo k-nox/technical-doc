@@ -31,6 +31,11 @@
     <meta name="msapplication-TileColor" content="#603cba" />
     <meta name="msapplication-config" content="/images/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Roboto:ital,wght@0,400;0,700;1,400&family=Spartan:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="main.css" />
     <title>Basics of HTML</title>
     <script
@@ -43,23 +48,29 @@
     <input type="checkbox" class="theme-switch" id="theme-switch" />
     <div class="content">
       <label for="theme-switch" class="switch-label"></label>
-      <nav id="navbar" class="navbar">
+      <nav id="navbar" class="nav-bar">
         <header>
           <h1>Basics of HTML</h1>
         </header>
-        <ul>
-          <li><a href="#Introduction" class="nav-link">Introduction</a></li>
-          <li>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#Introduction" class="nav-link">Introduction</a>
+          </li>
+          <li class="nav-item">
             <a href="#So_what_is_HTML&quest;" class="nav-link"
               >So what is HTML?</a
             >
           </li>
-          <li><a href="#Images" class="nav-link">Images</a></li>
-          <li>
+          <li class="nav-item">
+            <a href="#Images" class="nav-link">Images</a>
+          </li>
+          <li class="nav-item">
             <a href="#Marking_up_text" class="nav-link">Marking up text</a>
           </li>
-          <li><a href="#Links" class="nav-link">Links</a></li>
-          <li><a href="#References" class="nav-link">References</a></li>
+          <li class="nav-item"><a href="#Links" class="nav-link">Links</a></li>
+          <li class="nav-item">
+            <a href="#References" class="nav-link">References</a>
+          </li>
         </ul>
       </nav>
       <div class="scroll">
@@ -103,21 +114,21 @@
                 For example, take the following line of content:
               </p>
               <pre>
-  <code>My dog is very excited</code>
+<code>My dog is very excited</code>
 </pre>
               <p>
                 If we wanted the line to stand by itself, we could specify that
                 it is a paragraph by enclosing it in paragraph tags:
               </p>
               <pre>
-  <code>&lt;p&gt;My dog is very excited&lt;/p&gt;</code>
+<code>&lt;p&gt;My dog is very excited&lt;/p&gt;</code>
 </pre>
               <section>
                 <!-- SECTION 2.1 -->
                 <h3>Anatomy of an HTML element</h3>
                 <p>Let's explore this paragraph element a bit further.</p>
                 <pre>
-  <code><span class="open-tag">&lt;p&gt;</span><span class="code-content">My dog is very excited</span><span class="close-tag">&lt;/p&gt;</span></code>
+<code><span class="open-tag">&lt;p&gt;</span>My dog is very excited<span class="close-tag">&lt;/p&gt;</span></code>
 </pre>
                 <!-- USE CSS TO STYLE OPEN-TAG AND CLOSE-TAG IN DIFFERENT COLORS -->
                 <p>The main parts of our element are as follows:</p>
@@ -128,7 +139,7 @@
                     closing <strong>angle brackets</strong>. This states where
                     the element begins or start to take effect — in this case
                     where the paragraph begins. The opening tag is shown in
-                    <span class="open-tag">INSERT COLOR NAME HERE</span>
+                    <span class="open-tag">green</span>.
                   </li>
                   <li>
                     <strong>The closing tag:</strong> This is the same as the
@@ -137,14 +148,12 @@
                     where the element ends — in this case where the paragraph
                     ends. Failing to add a closing tag is one of the standard
                     beginner errors and can lead to strange results. The closing
-                    tag is shown in
-                    <span class="close-tag">INSERT COLOR NAME HERE</span>
+                    tag is shown in <span class="close-tag">red</span>.
                   </li>
                   <li>
                     <strong>The content:</strong> This is the content of the
                     element, which in this case, is just text. The content is
-                    shown in
-                    <span class="code-content">INSERT COLOR NAME HERE</span>.
+                    shown in between the opening and closing tags.
                   </li>
                   <li>
                     <strong>The element:</strong> The opening tag, the closing
@@ -154,10 +163,10 @@
                 <p>
                   Elements can also have attributes. The attribute in the
                   following example is shown in
-                  <span class="attribute">INSERT COLOR NAME HERE</span>:
+                  <span class="attribute">pink</span>:
                 </p>
                 <pre>
-  <code>&lt;p <span class="attribute">class="editor-note"</span>&gt;My dog is very excited&lt;/p&gt;</code>
+<code>&lt;p <span class="attribute">class="editor-note"</span>&gt;My dog is very excited&lt;/p&gt;</code>
 </pre>
                 <p>
                   Attributes contain extra information about the element that
@@ -200,7 +209,7 @@
                   emphasized:
                 </p>
                 <pre>
-  <code>&lt;p&gt;My dog is &lt;strong&gt;very&lt;/strong&gt;excited&lt;/p&gt;</code>
+<code>&lt;p&gt;My dog is &lt;strong&gt;very&lt;/strong&gt;excited&lt;/p&gt;</code>
 </pre>
                 <p>
                   You do however need to make sure that your elements are
@@ -211,7 +220,7 @@
                   <code>&lt;p&gt;</code> element. The following is incorrect:
                 </p>
                 <pre>
-  <code>&lt;p&gt;My dog is &lt;strong&gt;very excited&lt;/p&gt;&lt;/strong&gt;</code>
+<code>&lt;p&gt;My dog is &lt;strong&gt;very excited&lt;/p&gt;&lt;/strong&gt;</code>
 </pre>
                 <p>
                   The elements have to open and close correctly so that they are
@@ -234,7 +243,7 @@
                   element, for example:
                 </p>
                 <pre>
-  <code>&lt;img src="images/happy-dog.png" alt="My happy dog"&gt;</code>
+<code>&lt;img src="images/happy-dog.png" alt="My happy dog"&gt;</code>
 </pre>
                 <p>
                   This contains two attributes, but there is no closing
@@ -254,16 +263,16 @@
                   at this example:
                 </p>
                 <pre>
-  <code>&lt;!DOCTYPE html&gt;
-  &lt;html&gt;
-    &lt;head&gt;
-      &lt;meta charset="UTF-8"&gt;
-      &lt;title&gt;Happy Dog Page&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-      &lt;img src="images/happy-dog.png" alt="My happy dog"&gt;
-    &lt;/body&gt;
-  &lt;/html&gt;</code>
+<code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Happy Dog Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;img src="images/happy-dog.png" alt="My happy dog"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
 </pre>
                 <p>Here, we have the following:</p>
                 <ul>
@@ -350,7 +359,7 @@
                 again:
               </p>
               <pre>
-  <code>&lt;img src="images/happy-dog.png" alt="My happy dog"&gt;</code>
+<code>&lt;img src="images/happy-dog.png" alt="My happy dog"&gt;</code>
 </pre>
               <p>
                 As we said before, it embeds an image into our page in the
@@ -414,10 +423,10 @@
                   >, although you'll commonly only use 3 to 4 at most:
                 </p>
                 <pre>
-  <code>&lt;h1&gt;My main title&lt;/h1&gt;
-  &lt;h2&gt;My top level heading&lt;/h2&gt;
-  &lt;h3&gt;My subheading&lt;/h3&gt;
-  &lt;h4&gt;My sub-subheading&lt;/h4&gt;</code>
+<code>&lt;h1&gt;My main title&lt;/h1&gt;
+&lt;h2&gt;My top level heading&lt;/h2&gt;
+&lt;h3&gt;My subheading&lt;/h3&gt;
+&lt;h4&gt;My sub-subheading&lt;/h4&gt;</code>
 </pre>
               </section>
               <section>
@@ -433,7 +442,7 @@
                   these frequently when marking up regular text content:
                 </p>
                 <pre>
-  <code>&lt;p&gt;This is a single paragraph&lt;/p&gt;</code>
+<code>&lt;p&gt;This is a single paragraph&lt;/p&gt;</code>
 </pre>
               </section>
               <section>
@@ -480,17 +489,17 @@
                   paragraph fragment into a list:
                 </p>
                 <pre>
-  <code>&lt;p&gt;My dog is a happy, silly, independent golden retriever&lt;/p&gt;</code>
+<code>&lt;p&gt;My dog is a happy, silly, independent golden retriever&lt;/p&gt;</code>
 </pre>
                 <p>We could modify the markup to this:</p>
                 <pre>
-  <code>&lt;p&gt;My dog is a&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;happy&lt;/li&gt;
-    &lt;li&gt;silly&lt;/li&gt;
-    &lt;li&gt;independent&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p&gt;golden retriever.&lt;/p&gt;</code>
+<code>&lt;p&gt;My dog is a&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;happy&lt;/li&gt;
+  &lt;li&gt;silly&lt;/li&gt;
+  &lt;li&gt;independent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;golden retriever.&lt;/p&gt;</code>
 </pre>
               </section>
             </article>
@@ -517,21 +526,21 @@
                   Wrap the text in an <code>&lt;a&gt;</code> element, as shown
                   below:
                   <pre>
-  <code>&lt;a&gt;golden retriever&lt;/a&gt;</code>
+<code>&lt;a&gt;golden retriever&lt;/a&gt;</code>
 </pre>
                 </li>
                 <li>
                   Give the &lt;a&gt; elment an <code>href</code> attribute, as
                   shown below:
                   <pre>
-  <code>&lt;a href=""&gt;golden retriever&lt;/a&gt;</code>
+<code>&lt;a href=""&gt;golden retriever&lt;/a&gt;</code>
 </pre>
                 </li>
                 <li>
                   Fill in the value of this attribute with the web address that
                   you want the link to link to:
                   <pre>
-  <code>&lt;a href="https://en.wikipedia.org/wiki/Golden_Retriever"&gt;golden retriever&lt;/a&gt;</code>
+<code>&lt;a href="https://en.wikipedia.org/wiki/Golden_Retriever"&gt;golden retriever&lt;/a&gt;</code>
 </pre>
                 </li>
               </ol>
