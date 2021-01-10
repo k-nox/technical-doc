@@ -154,7 +154,6 @@ a code:hover {
   color: var(--code-text);
   background-color: var(--code-bg);
   transition: color 0.2s;
-  width: 100%;
 }
 h1,
 h2,
@@ -201,4 +200,35 @@ code {
 }
 .attribute {
   color: rgb(255, 125, 147);
+}
+@media screen and (max-width: 43rem) {
+  .content {
+    grid-template-rows: auto auto 2em;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nav"
+      "main"
+      "theme";
+  }
+  .scroll {
+    overflow: auto;
+  }
+  .nav-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .nav-item {
+    border: none;
+  }
+  .main {
+    height: auto;
+  }
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-link:active {
+    text-decoration: underline;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
 }
